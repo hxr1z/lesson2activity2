@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-// App is the parent component
 function App() {
   return (
     <>
