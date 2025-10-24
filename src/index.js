@@ -40,16 +40,16 @@ function App() {
 }
 
 function Header() {
-  return <h1>Pizza@Hariz's</h1>;
+  return <h1>Hariz's Pizzeria</h1>;
 }
 
-function Pizza(props) {
+function Pizza(info) {
   return (
     <div>
-      <img src={props.photo} alt={props.name} />
-      <h2>{props.name}</h2>
-      <p>{props.ingredients}</p>
-      <p>{props.price}</p>
+      <img src={info.photo}/>
+      <h2>{info.name}</h2>
+      <p>{info.ingredients}</p>
+      <p>{info.price}</p>
     </div>
   );
 }
