@@ -56,3 +56,12 @@ function Pizza(info) {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
+
+//Demo Conditional rendering
+//Method 1: If statements 
+//Requirements:
+//If age >=18 then display "Thanks for the purchase"
+//Else age <18, then display "Sorry you're not allowed"
+
+let message = <h1>Thanks for the purchase</h1>
+root.render(message);
