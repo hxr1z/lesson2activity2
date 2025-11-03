@@ -6,6 +6,22 @@ function App() {
   return (
     <>
       <Header/>
+      <Menu/>
+      <Footer/>
+      <ProfileCard name="Hariz" age="19 years old"/>
+      <ProfileCard name="Chernyn" age="18 years old"/>
+    </>
+  );
+}
+
+function Header() {
+  return <h1 style={{ color: "orange", fontSize: "48px", textTransform: "uppercase" }}>Hariz's Pizzeria</h1>;
+}
+
+function Menu() {
+  return (
+    <div className='menu'>
+      <h2>Our Menu</h2>
       <Pizza 
         name="Pizza Spinaci"
         ingredients="Tomato, mozzarella, spinach, and ricotta cheese"
@@ -36,13 +52,17 @@ function App() {
         photo="/pizzas/salamino.jpg"
         price="$10.50"
       />
-      <Footer/>
-    </>
+    </div>
   );
 }
 
-function Header() {
-  return <h1 style={{ color: "orange", fontSize: "48px", textTransform: "uppercase" }}>Hariz's Pizzeria</h1>;
+function ProfileCard(props) {
+  return (
+    <>
+      <h1>{props.name}</h1>
+      <h2>{props.age}</h2>
+    </>
+  );
 }
 
 function Pizza(info) {
