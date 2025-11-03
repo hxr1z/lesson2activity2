@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 function App() {
   return (
     <>
-      <Header />
+      <Header/>
       <Pizza 
         name="Pizza Spinaci"
         ingredients="Tomato, mozzarella, spinach, and ricotta cheese"
@@ -40,7 +40,7 @@ function App() {
 }
 
 function Header() {
-  return <h1>Hariz's Pizzeria</h1>;
+  return <h1 style={{ color: "orange", fontSize: "48px", textTransform: "uppercase" }}>Hariz's Pizzeria</h1>;
 }
 
 function Pizza(info) {
@@ -56,21 +56,3 @@ function Pizza(info) {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
-
-//Demo Conditional rendering
-//Method 1: If statements 
-//Requirements:
-//If age >=18 then display "Thanks for the purchase"
-//Else age <18, then display "Sorry you're not allowed"
-
-let age = 16;
-let message = <h1>Thanks for the purchase</h1>
-
-if (age >= 18) {
-  message = <h1>Thanks for the purchase</h1>;
-}
-else {
-  message = <h1>Sorry you're not allowed</h1>;
-}
-
-root.render(message);
