@@ -36,6 +36,7 @@ function App() {
         photo="/pizzas/salamino.jpg"
         price="$10.50"
       />
+      <Footer/>
     </>
   );
 }
@@ -53,6 +54,10 @@ function Pizza(info) {
       <p>{info.price}</p>
     </div>
   );
+}
+
+function Footer() {
+  return <footer className='footer'>"We're currently open".</footer>;
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
