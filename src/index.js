@@ -63,5 +63,14 @@ root.render(<App />);
 //If age >=18 then display "Thanks for the purchase"
 //Else age <18, then display "Sorry you're not allowed"
 
+let age = 16;
 let message = <h1>Thanks for the purchase</h1>
+
+if (age >= 18) {
+  message = <h1>Thanks for the purchase</h1>;
+}
+else {
+  message = <h1>Sorry you're not allowed</h1>;
+}
+
 root.render(message);
