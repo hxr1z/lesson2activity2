@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css';
 
 function App() {
   return (
@@ -45,7 +46,7 @@ function Header() {
 
 function Pizza(info) {
   return (
-    <div>
+    <div className='menu'>
       <img src={info.photo}/>
       <h2>{info.name}</h2>
       <p>{info.ingredients}</p>
