@@ -57,7 +57,7 @@ function Pizza(info) {
 }
 
 function Footer() {
-  return <footer className='footer'>"We're currently open".</footer>;
+  return <footer className='footer'>We're currently open.</footer>;
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
