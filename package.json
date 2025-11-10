@@ -1,6 +1,7 @@
 {
-  "name": "activity",
+  "name": "pizzawebsite",
   "version": "0.1.0",
+  "homepage": "https://hxr1z.github.io/pizzawebsite/",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
