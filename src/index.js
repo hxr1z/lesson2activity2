@@ -2,83 +2,171 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
+const pizzaData = [
+  {
+    name: "Focaccia",
+    ingredients: "Bread with italian olive oil and rosemary",
+    price: 6,
+    photoName: "pizzas/focaccia.jpg",
+    soldOut: false,
+  },
+  {
+    name: "Pizza Margherita",
+    ingredients: "Tomato and mozarella",
+    price: 10,
+    photoName: "pizzas/margherita.jpg",
+    soldOut: false,
+  },
+  {
+    name: "Pizza Spinaci",
+    ingredients: "Tomato, mozarella, spinach, and ricotta cheese",
+    price: 12,
+    photoName: "pizzas/spinaci.jpg",
+    soldOut: false,
+  },
+  {
+    name: "Pizza Funghi",
+    ingredients: "Tomato, mozarella, mushrooms, and onion",
+    price: 12,
+    photoName: "pizzas/funghi.jpg",
+    soldOut: false,
+  },
+  {
+    name: "Pizza Salamino",
+    ingredients: "Tomato, mozarella, and pepperoni",
+    price: 15,
+    photoName: "pizzas/salamino.jpg",
+    soldOut: true,
+  },
+  {
+    name: "Pizza Prosciutto",
+    ingredients: "Tomato, mozarella, ham, aragula, and burrata cheese",
+    price: 18,
+    photoName: "pizzas/prosciutto.jpg",
+    soldOut: false,
+  },
+];
+
+// APP COMPONENT
 function App() {
+  // Get the current time and set open/close hours 
+  const hour = new Date().getHours();
+  const openHour = 10;
+  const closeHour = 22; // 10 PM
+  
+  // The shop is open from 10:00 up to (but not including) 22:00
+  const isOpen = hour >= openHour && hour < closeHour;
+
   return (
-    <>
-      <Header/>
-      <Menu/>
-      <Footer/>
-      <ProfileCard name="Hariz" age="19 years old"/>
-      <ProfileCard name="Chernyn" age="18 years old"/>
-    </>
+    <div className="container">
+      <Header />
+      {/* Pass the 'isOpen' status down as a prop */}
+      <Menu isOpen={isOpen} />
+      <Footer isOpen={isOpen} />
+    </div>
   );
 }
 
+// HEADER COMPONENT (Unchanged)
 function Header() {
-  return <h1 style={{ color: "orange", fontSize: "48px", textTransform: "uppercase" }}>Hariz's Pizzeria</h1>;
+  return (
+    <header className="header">
+      <h1>Hariz's Pizzeria</h1>
+    </header>
+  );
 }
 
-function Menu() {
+// MENU COMPONENT (Refactored)
+function Menu(props) {
+  // Receive the 'isOpen' prop from App
+  const { isOpen } = props;
+  const numPizzas = pizzaData.length;
+
   return (
-    <div className='menu'>
+    <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza 
-        name="Pizza Spinaci"
-        ingredients="Tomato, mozzarella, spinach, and ricotta cheese"
-        photo="/pizzas/spinaci.jpg"
-        price="$10.00"
-      />
-      <Pizza 
-        name="Pizza Margherita"
-        ingredients="Tomato, mozzarella, and basil"
-        photo="/pizzas/margherita.jpg"
-        price="$8.00"
-      />
-      <Pizza 
-        name="Pizza Funghi"
-        ingredients="Tomato, mozzarella, and mushrooms"
-        photo="/pizzas/funghi.jpg"
-        price="$9.00"
-      />
-      <Pizza 
-        name="Pizza Prosciutto"
-        ingredients="Tomato, mozzarella, ham, and arugula"
-        photo="/pizzas/prosciutto.jpg"
-        price="$11.00"
-      />
-      <Pizza 
-        name="Pizza Salamino"
-        ingredients="Tomato, mozzarella, and pepperoni"
-        photo="/pizzas/salamino.jpg"
-        price="$10.50"
-      />
+
+      {numPizzas > 0 ? (
+        <>
+          {/* This tagline is now conditional  */}
+          {isOpen && (
+            <p>
+              Authentic Italian cuisine, all from our stone oven
+            </p>
+          )}
+
+          <ul className="pizzas">
+            {pizzaData.map((pizza) => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+          </ul>
+        </>
+      ) : (
+        <p>We're still working on our menu. Please come back later :)</p>
+      )}
+    </main>
+  );
+}
+
+// PIZZA COMPONENT (Refactored)
+// This component now takes a single 'pizzaObj' prop
+function Pizza(props) {
+  const { pizzaObj } = props;
+
+  // Conditionally apply a CSS class if the pizza is sold out
+  const pizzaClass = pizzaObj.soldOut ? 'pizza sold-out' : 'pizza';
+
+  return (
+    <li className={pizzaClass}>
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
+      <div>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        
+        {/* Conditionally render the price or "SOLD OUT"
+          based on the 'soldOut' boolean
+        */}
+        <span>
+          {pizzaObj.soldOut ? "SOLD OUT" : `$${pizzaObj.price}`}
+        </span>
+      </div>
+    </li>
+  );
+}
+
+function Order() {
+  return (
+    <div className="order">
+      {/* Specific message from requirement [cite: 46] */}
+      <p>We're currently open</p>
+      {/* Button is shown when open [cite: 47] */}
+      <button className="btn">Order</button>
     </div>
   );
 }
 
-function ProfileCard(props) {
+// FOOTER COMPONENT (Refactored)
+function Footer(props) {
+  // Receive the 'isOpen' prop from App
+  const { isOpen } = props;
+
   return (
-    <>
-      <h1>{props.name}</h1>
-      <h2>{props.age}</h2>
-    </>
+    <footer className="footer">
+      {isOpen ? (
+        // Render the new Order component when open 
+        <Order />
+      ) : (
+        // Specific "closed" message from requirement 
+        <p>Sorry, we're closed</p>
+      )}
+    </footer>
   );
 }
 
-function Pizza(info) {
-  return (
-    <div className='menu'>
-      <img src={info.photo}/>
-      <h2>{info.name}</h2>
-      <p>{info.ingredients}</p>
-      <p>{info.price}</p>
-    </div>
-  );
-}
-
-function Footer() {
-  return <footer className='footer'>We're currently open.</footer>;
-}
-
+// RENDER (Syntax error fixed)
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
