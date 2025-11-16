@@ -68,6 +68,7 @@ body {
   letter-spacing: 2px;
   font-weight: 500;
   color: #888; 
+}
 
 .menu > p {
   font-size: 1.8rem;
@@ -100,6 +101,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3.2rem; 
+}
 
 .pizza {
   display: flex;
@@ -144,6 +146,7 @@ body {
   font-style: normal;
   color: #666;
   margin-bottom: auto;
+}
 
 .pizza span {
   display: block;
