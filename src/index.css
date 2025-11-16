@@ -13,9 +13,9 @@ html {
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, 'Noto Sans', 'Inter', sans-serif;
-  color: #2c2c2c; /* A slightly softer black for text */
+  color: #2c2c2c; 
   font-weight: 400;
-  background-color: #faf8f5; /* A warm, creamy off-white background */
+  background-color: #faf8f5; 
   min-height: 100vh;
   padding: 3.2rem;
   padding-bottom: 6rem;
@@ -30,8 +30,6 @@ body {
   gap: 4.8rem;
 }
 
-/* *************** */
-
 .header {
   align-self: stretch;
 }
@@ -41,8 +39,8 @@ body {
   text-transform: none;
   text-align: center;
   font-size: 5.2rem;
-  font-weight: 600; /* Slightly lighter than pure bold */
-  letter-spacing: -0.5px; /* Tighten it up slightly */
+  font-weight: 600; 
+  letter-spacing: -0.5px;
   position: relative;
   width: 100%;
   display: block;
@@ -53,25 +51,23 @@ body {
   display: none;
 }
 
-/* *************** */
 
 .menu {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2.4rem;
-  width: 100%; /* Make menu take full width */
+  width: 100%; 
 }
 
 .menu h2 {
   border-top: none;
   border-bottom: none;
   font-size: 2.8rem;
-  text-transform: uppercase; /* Add a bit of "design" */
+  text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 500;
-  color: #888; /* Make the subheading more subtle */
-}
+  color: #888; 
 
 .menu > p {
   font-size: 1.8rem;
@@ -82,21 +78,36 @@ body {
   margin-bottom: 2.4rem;
 }
 
+.search-container {
+  text-align: center;
+  margin-bottom: 1.6rem;
+  width: 100%;
+}
+
+.search-input {
+  font-size: 1.6rem;
+  font-family: inherit;
+  color: #666;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 0.8rem;
+  width: 50%;
+  max-width: 40rem;
+}
+
 .pizzas {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3.2rem; /* Give cards a bit more space */
-}
+  gap: 3.2rem; 
 
 .pizza {
   display: flex;
-  flex-direction: row; /* Change to side-by-side layout */
+  flex-direction: row;
   gap: 2.4rem;
-  background-color: #ffffff; /* Clean white cards */
+  background-color: #ffffff;
   border-radius: 1.6rem;
   padding: 2.4rem;
-  /* A more pronounced, softer shadow */
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   transition: all 0.2s;
 }
@@ -107,12 +118,11 @@ body {
 }
 
 .pizza img {
-  width: 12rem; /* Fixed width for the image */
-  height: 12rem; /* Make it a square */
-  aspect-ratio: 1;
+  width: 12rem; 
+  height: 12rem; 
   object-fit: cover;
   border-radius: 1.2rem;
-  align-self: flex-start; /* Align image to the top */
+  align-self: flex-start; 
 }
 
 .pizza div {
@@ -120,7 +130,7 @@ body {
   flex-direction: column;
   gap: 0.8rem;
   padding: 0;
-  flex: 1; /* Allow text div to fill the remaining space */
+  flex: 1;
 }
 
 .pizza h3 {
@@ -133,8 +143,7 @@ body {
   font-weight: 400;
   font-style: normal;
   color: #666;
-  margin-bottom: auto; /* This pushes the price to the bottom */
-}
+  margin-bottom: auto;
 
 .pizza span {
   display: block;
@@ -156,11 +165,9 @@ body {
   color: #aaa;
 }
 
-/* *************** */
-
 .footer {
   font-size: 1.4rem;
-  color: #888; /* Lighter text for footer */
+  color: #888;
   text-align: center;
 }
 
@@ -177,7 +184,6 @@ body {
   border: none;
   font-size: 1.5rem;
   font-weight: 500;
-  /* A warm, "tomato" red accent color */
   background-color: #d9372d;
   padding: 1.2rem 2.8rem;
   cursor: pointer;
@@ -186,5 +192,5 @@ body {
 }
 
 .btn:hover {
-  background-color: #b82f27; /* Darker red on hover */
+  background-color: #b82f27;
 }
